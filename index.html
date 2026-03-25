@@ -211,6 +211,27 @@
             background: var(--light-green);
         }
 
+        /* Hero Parallax */
+        .hero-parallax {
+            height: 400px;
+            background-image: url('https://picsum.photos/seed/pressurewash/1600/600');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            filter: blur(2px) brightness(0.6);
+            position: relative;
+        }
+
+        .hero-parallax::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 100%);
+        }
+
         /* Services Section */
         .services {
             padding: 120px 0;
@@ -274,6 +295,53 @@
             color: var(--text-muted);
             font-size: 14px;
             line-height: 1.7;
+        }
+
+        /* Real Results Section */
+        .results {
+            padding: 120px 0;
+            background: var(--light-green);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .result-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .result-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition);
+            display: block;
+        }
+
+        .result-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .result-card .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 16px 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+        }
+
+        .result-card .overlay span {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
         }
 
         /* Why Us Section */
@@ -478,6 +546,10 @@
             .why-us-grid {
                 gap: 32px 48px;
             }
+
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -524,7 +596,15 @@
                 justify-content: center;
             }
 
+            .hero-parallax {
+                height: 250px;
+            }
+
             .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -576,6 +656,7 @@
                 </a>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#services" data-en="Services" data-nl="Diensten">Services</a></li>
+                    <li><a href="#results" data-en="Our Work" data-nl="Ons Werk">Our Work</a></li>
                     <li><a href="#process" data-en="Process" data-nl="Proces">Process</a></li>
                     <li><a href="#contact" data-en="Contact" data-nl="Contact">Contact</a></li>
                     <li><button class="lang-toggle" id="langToggle">NL</button></li>
@@ -602,6 +683,9 @@
             </div>
         </div>
     </section>
+
+    <!-- Hero Parallax -->
+    <div class="hero-parallax"></div>
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -650,6 +734,54 @@
                     </svg>
                     <h3 data-en="Other Surfaces" data-nl="Andere Oppervlakken">Other Surfaces</h3>
                     <p data-en="Terraces, fences, walls and facades â we clean all outdoor surfaces with the same attention to detail and quality results." data-nl="Terrassen, hekken, muren en gevels â wij reinigen alle buitenoppervlakken met dezelfde aandacht voor detail en kwaliteitsresultaten.">Terraces, fences, walls and facades â we clean all outdoor surfaces with the same attention to detail and quality results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Results Section -->
+    <section class="results" id="results">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-en="Real Results / Ons Werk" data-nl="Echte Resultaten / Ons Werk">Real Results / Ons Werk</h2>
+                <p data-en="See the transformation for yourself. Before and after professional cleaning." data-nl="Zie de transformatie zelf. Voor en na professionele reiniging.">See the transformation for yourself. Before and after professional cleaning.</p>
+            </div>
+            <div class="results-grid">
+                <div class="result-card reveal">
+                    <img src="https://picsum.photos/seed/paving1/600/400" alt="Paving Cleaning">
+                    <div class="overlay">
+                        <span data-en="Paving Cleaning" data-nl="Bestrating Reiniging">Paving Cleaning</span>
+                    </div>
+                </div>
+                <div class="result-card reveal">
+                    <img src="https://picsum.photos/seed/driveway2/600/400" alt="Driveway Pressure Wash">
+                    <div class="overlay">
+                        <span data-en="Driveway Pressure Wash" data-nl="Oprit Hogedrukreiniging">Driveway Pressure Wash</span>
+                    </div>
+                </div>
+                <div class="result-card reveal">
+                    <img src="https://picsum.photos/seed/terrace3/600/400" alt="Terrace Cleaning">
+                    <div class="overlay">
+                        <span data-en="Terrace Cleaning" data-nl="Terras Reiniging">Terrace Cleaning</span>
+                    </div>
+                </div>
+                <div class="result-card reveal">
+                    <img src="https://picsum.photos/seed/facade4/600/400" alt="Facade Cleaning">
+                    <div class="overlay">
+                        <span data-en="Facade / Wall Cleaning" data-nl="Gevel / Muur Reiniging">Facade / Wall Cleaning</span>
+                    </div>
+                </div>
+                <div class="result-card reveal">
+                    <img src="https://picsum.photos/seed/worker5/600/400" alt="Professional Pressure Washing">
+                    <div class="overlay">
+                        <span data-en="Professional Pressure Washing" data-nl="Professionele Hogedrukreiniging">Professional Pressure Washing</span>
+                    </div>
+                </div>
+                <div class="result-card reveal">
+                    <img src="https://picsum.photos/seed/patio6/600/400" alt="Patio Cleaning">
+                    <div class="overlay">
+                        <span data-en="Patio Cleaning" data-nl="Patio Reiniging">Patio Cleaning</span>
+                    </div>
                 </div>
             </div>
         </div>
